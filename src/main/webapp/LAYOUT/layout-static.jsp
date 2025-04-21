@@ -80,8 +80,8 @@
             </a>
             <div class="collapse" id="collapseTurnos" data-bs-parent="#sidenavAccordion">
               <nav class="sb-sidenav-menu-nested nav">
-                <a class="nav-link ver-turnos" href="#">Ver Turnos</a>
-                <a class="nav-link alta-turnos" href="#">Alta Turnos</a>
+                <a class="nav-link ver-turnos" href="svTurnos">Ver Turnos</a>
+                <a class="nav-link alta-turnos" href="gestionTurnos.jsp">Alta Turnos</a>
               </nav>
             </div>
 

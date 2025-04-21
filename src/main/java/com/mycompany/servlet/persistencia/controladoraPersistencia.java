@@ -2,12 +2,13 @@ package com.mycompany.servlet.persistencia;
 
 
 import com.mycompany.servlet.logica.claseResponsable;
-  import com.mycompany.servlet.logica.claseHorario;
 import com.mycompany.servlet.logica.claseSecretario;
 import com.mycompany.servlet.logica.clasePaciente;
 import com.mycompany.servlet.logica.claseUsuario;
 import com.mycompany.servlet.logica.claseOdontologo;
 import com.mycompany.servlet.logica.claseHorario;
+import com.mycompany.servlet.logica.claseTurno;
+
 import com.mycompany.servlet.persistencia.exceptions.NonexistentEntityException;
 import java.util.List;
 import java.util.logging.Level;
@@ -188,5 +189,30 @@ claseHorarioJpaController horarioJpa = new claseHorarioJpaController();
         }
     }
 
+    
+    // Declaraciones al inicio de la clase:
+claseTurnoJpaController turnoJpa = new claseTurnoJpaController();
+
+// Métodos para Turno:
+public void crearTurno(claseTurno t) {
+    turnoJpa.create(t);
+}
+public List<claseTurno> traerTurnos() {
+    return turnoJpa.findTurnoEntities();
+}
+public List<claseTurno> traerTurnosPorOdontologoYFecha(int idOd, String fecha) {
+    return turnoJpa.findTurnosByOdontologoAndFecha(idOd, fecha);
+}
+public void borrarTurno(int id) {
+    try { turnoJpa.destroy(id); }
+    catch (NonexistentEntityException ex) {
+        Logger.getLogger(controladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
+
+// Método para traer horarios por odontólogo:
+public List<claseHorario> traerHorariosPorOdontologo(int idOd) {
+    return horarioJpa.findHorarioByOdontologo(idOd);
+}
 
 }

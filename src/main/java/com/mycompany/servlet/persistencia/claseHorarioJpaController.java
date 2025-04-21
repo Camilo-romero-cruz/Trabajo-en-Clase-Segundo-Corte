@@ -25,7 +25,18 @@ public class claseHorarioJpaController implements Serializable {
             em.close();
         }
     }
-
+public List<claseHorario> findHorarioByOdontologo(int idOd) {
+    EntityManager em = getEntityManager();
+    try {
+        return em.createQuery(
+            "SELECT h FROM claseHorario h WHERE h.odontologo.id = :idOd", claseHorario.class
+        )
+        .setParameter("idOd", idOd)
+        .getResultList();
+    } finally {
+        em.close();
+    }
+}
     public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = getEntityManager();
         try {

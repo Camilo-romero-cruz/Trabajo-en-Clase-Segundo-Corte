@@ -145,5 +145,24 @@ public void borrarResponsable(int id) {
     controlPersis.borrarResponsable(id);
 }
 
+
+public void crearTurno(claseTurno t) {
+    controlPersis.crearTurno(t);
+}
+public List<claseTurno> traerTurnos() {
+    return controlPersis.traerTurnos();
+}
+public List<claseTurno> traerTurnosPorOdontologoYFecha(int idOd, String fecha) {
+    return controlPersis.traerTurnosPorOdontologoYFecha(idOd, fecha);
+}
+public void borrarTurno(int id) {
+    controlPersis.borrarTurno(id);
+}
+
+// Método auxiliar para Horario:
+public List<claseHorario> traerHorariosPorOdontologo(int idOd) {
+    return controlPersis.traerHorariosPorOdontologo(idOd);
+}
+
         
     }
